@@ -18,19 +18,19 @@ suspend fun getBannerData() = getResult {
 }
 
 2.超简单调用接口
-
+```
 lifecycleScope.launch {  
- withContext(Dispatchers.IO) {  
- TestApi().getBannerData()  
- }.onFailure {  
- val exception = it as RequestException  
- Log.i("miracle", "onFailure==" + exception.message)  
- }.onSuccess {  
- Log.i("miracle", "onSuccess")  
- viewBinding.content.text = it.toString()  
- }  
+   withContext(Dispatchers.IO) {  
+      TestApi().getBannerData()  
+   }.onFailure {  
+      val exception = it as RequestException  
+      Log.i("miracle", "onFailure==" + exception.message)  
+   }.onSuccess {  
+      Log.i("miracle", "onSuccess")  
+      viewBinding.content.text = it.toString()  
+   }  
 }
-
+```
 3.如果想知道接口的具体异常，可自行处理
 
 onFailure {  
