@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
                 TestApi().getBannerData()
             }.onFailure {
                 val exception = it as RequestException
-                Log.i("miracle", "onFailure==" + exception.code)
+                Log.i("miracle", "onFailure==" + exception.message)
             }.onSuccess {
                 Log.i("miracle", "onSuccess")
                 viewBinding.content.text = it.toString()
